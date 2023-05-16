@@ -5,6 +5,9 @@
  */
 package Principal;
 
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Liliana
@@ -31,21 +34,39 @@ public class MenuP extends javax.swing.JPanel
     {
 
         fondo = new javax.swing.JPanel();
+        fondoAB = new javax.swing.JPanel();
         fondoOpc = new javax.swing.JPanel();
 
-        fondo.setBackground(new java.awt.Color(204, 204, 204));
+        setBackground(new java.awt.Color(220, 220, 220));
+        setVerifyInputWhenFocusTarget(false);
 
-        fondoOpc.setBackground(new java.awt.Color(0, 0, 101));
+        fondo.setBackground(new java.awt.Color(220, 220, 220));
+        fondo.setToolTipText("Altas");
+
+        fondoAB.setBackground(new java.awt.Color(220, 220, 220));
+
+        javax.swing.GroupLayout fondoABLayout = new javax.swing.GroupLayout(fondoAB);
+        fondoAB.setLayout(fondoABLayout);
+        fondoABLayout.setHorizontalGroup(
+            fondoABLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 308, Short.MAX_VALUE)
+        );
+        fondoABLayout.setVerticalGroup(
+            fondoABLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 371, Short.MAX_VALUE)
+        );
+
+        fondoOpc.setBackground(new java.awt.Color(0, 140, 188));
 
         javax.swing.GroupLayout fondoOpcLayout = new javax.swing.GroupLayout(fondoOpc);
         fondoOpc.setLayout(fondoOpcLayout);
         fondoOpcLayout.setHorizontalGroup(
             fondoOpcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 110, Short.MAX_VALUE)
+            .addGap(0, 105, Short.MAX_VALUE)
         );
         fondoOpcLayout.setVerticalGroup(
             fondoOpcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 516, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout fondoLayout = new javax.swing.GroupLayout(fondo);
@@ -54,28 +75,65 @@ public class MenuP extends javax.swing.JPanel
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoLayout.createSequentialGroup()
                 .addComponent(fondoOpc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1080, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(fondoAB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 661, Short.MAX_VALUE))
         );
         fondoLayout.setVerticalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondoOpc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(fondoLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(fondoAB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(fondoOpc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel fondo;
+    private javax.swing.JPanel fondoAB;
     private javax.swing.JPanel fondoOpc;
     // End of variables declaration//GEN-END:variables
+
+    public JPanel getFondoOpc()
+    {
+        return fondoOpc;
+    }
+
+    public void setFondoOpc(JPanel fondoOpc)
+    {
+        this.fondoOpc = fondoOpc;
+    }
+
+    public JPanel getFondoAB()
+    {
+        return fondoAB;
+    }
+
+    public void setFondoAB(JPanel fondoAB)
+    {
+        this.fondoAB = fondoAB;
+    }
+
+    public JPanel getFondo()
+    {
+        return fondo;
+    }
+
+    public void setFondo(JPanel fondo)
+    {
+        this.fondo = fondo;
+    }
+    
 }

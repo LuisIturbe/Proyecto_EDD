@@ -170,9 +170,11 @@ public class Reg extends javax.swing.JPanel
                 user.setContra(txtContra.getText());
                 arr.inserta(user);
                 JOptionPane.showMessageDialog(this, "Registrado con éxito", "HECHO", JOptionPane.OK_OPTION);
-            }else
+                txtUser.setText("");
+                txtContra.setText("");
+            } else
             {
-                JOptionPane.showMessageDialog(this, "La contraseña debe ser mayor a 3 caracteres", "ATENCIÓN" ,JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "La contraseña debe ser mayor a 3 caracteres", "ATENCIÓN", JOptionPane.INFORMATION_MESSAGE);
                 txtContra.requestFocus();
             }
         } else
@@ -201,6 +203,8 @@ public class Reg extends javax.swing.JPanel
             user.setContra(txtContra.getText());
             arr.inserta(user);
             JOptionPane.showMessageDialog(this, "Registrado con éxito", "HECHO", JOptionPane.OK_OPTION);
+            txtUser.setText("");
+            txtContra.setText("");
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_txtContraKeyTyped

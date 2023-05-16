@@ -97,6 +97,21 @@ public class ArregloDinamico
             return false;
         }
     }
+    
+    //Funcion que busca si el usuario es administrador
+    public boolean tipoUser (String u)
+    {
+        Usuario us;
+        for (int i = 0; i < arr.length; i++)
+        {
+            us = (Usuario) arr[i];
+            if (us.getType() == 1)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public void elimina(int pos)
     {

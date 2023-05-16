@@ -5,6 +5,7 @@
  */
 package Principal;
 
+import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -14,6 +15,7 @@ import javax.swing.JPanel;
  */
 public class InSes extends javax.swing.JPanel
 {
+
     ArregloDinamico arr;
     Usuario user;
     JPanel fondo;
@@ -174,8 +176,32 @@ public class InSes extends javax.swing.JPanel
             if (arr.busca(txtUser.getText(), txtContra.getText()))
             {
                 JOptionPane.showMessageDialog(this, "Inicio exitoso", "Éxito", JOptionPane.OK_OPTION);
+                MenuP mp = new MenuP();
+                mp.setSize(1080, 600);
+                mp.setLocation(0, 0);
                 fondo.removeAll();
-                
+                fondo.add(mp, BorderLayout.CENTER);
+                fondo.revalidate();
+                fondo.repaint();
+                if (arr.tipoUser(txtUser.getText()))
+                {
+                    MenuAdmin mnu = new MenuAdmin(mp);
+                    mnu.setSize(105, 600);
+                    mnu.setLocation(0, 0);
+                    mp.getFondoOpc().removeAll();
+                    mp.getFondoOpc().add(mnu,BorderLayout.CENTER);
+                    mp.getFondoOpc().revalidate();
+                    mp.getFondoOpc().repaint();
+                } else
+                {
+                    MenuAdmin mnu = new MenuAdmin(mp);
+                    mnu.setSize(105, 600);
+                    mnu.setLocation(0, 0);
+                    mp.getFondoOpc().removeAll();
+                    mp.getFondoOpc().add(mnu, BorderLayout.CENTER);
+                    mp.getFondoOpc().revalidate();
+                    mp.getFondoOpc().repaint();
+                }
             }
         }
     }//GEN-LAST:event_txtContraKeyTyped
@@ -184,12 +210,35 @@ public class InSes extends javax.swing.JPanel
     {//GEN-HEADEREND:event_jButton1MouseClicked
         // TODO add your handling code here:
         if (arr.busca(txtUser.getText(), txtContra.getText()))
+        {
+            JOptionPane.showMessageDialog(this, "Inicio exitoso", "Éxito", JOptionPane.OK_OPTION);
+            MenuP mp = new MenuP();
+            mp.setSize(1080, 600);
+            mp.setLocation(0, 0);
+            fondo.removeAll();
+            fondo.add(mp, BorderLayout.CENTER);
+            fondo.revalidate();
+            fondo.repaint();
+            if (arr.tipoUser(txtUser.getText()))
             {
-                JOptionPane.showMessageDialog(this, "Inicio exitoso", "Éxito", JOptionPane.OK_OPTION);
-                fondo.removeAll();
-                fondo.revalidate();
-                fondo.repaint();
+                MenuAdmin mnu = new MenuAdmin(mp);
+                mnu.setSize(105, 600);
+                mnu.setLocation(0, 0);
+                mp.getFondoOpc().removeAll();
+                mp.getFondoOpc().add(mnu, BorderLayout.CENTER);
+                mp.getFondoOpc().revalidate();
+                mp.getFondoOpc().repaint();
+            } else
+            {
+                MenuAdmin mnu = new MenuAdmin(mp);
+                mnu.setSize(105, 600);
+                mnu.setLocation(0, 0);
+                mp.getFondoOpc().removeAll();
+                mp.getFondoOpc().add(mnu, BorderLayout.CENTER);
+                mp.getFondoOpc().revalidate();
+                mp.getFondoOpc().repaint();
             }
+        }
     }//GEN-LAST:event_jButton1MouseClicked
 
 
