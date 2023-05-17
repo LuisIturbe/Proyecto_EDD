@@ -7,6 +7,7 @@ package Principal;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -16,6 +17,7 @@ import javax.swing.JPanel;
 public class MenuAdmin extends javax.swing.JPanel
 {
     MenuP mp = new MenuP();
+    
 
     /**
      * Creates new form MenuAdmin
@@ -24,7 +26,6 @@ public class MenuAdmin extends javax.swing.JPanel
     {
         initComponents();
         mp = m;
-        
     }
 
     /**
@@ -121,7 +122,7 @@ public class MenuAdmin extends javax.swing.JPanel
     private void altasMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_altasMouseClicked
     {//GEN-HEADEREND:event_altasMouseClicked
         // TODO add your handling code here:
-        MenuAltas ma = new MenuAltas(mp);
+        MenuAltas ma = new MenuAltas(mp, MenuAdmin.this);
         ma.setSize(308, 374);
         ma.setLocation(0, 0);
         mp.getFondoAB().removeAll();
@@ -130,6 +131,77 @@ public class MenuAdmin extends javax.swing.JPanel
         mp.getFondoAB().repaint();
     }//GEN-LAST:event_altasMouseClicked
 
+    public MenuP getMp()
+    {
+        return mp;
+    }
+
+    public void setMp(MenuP mp)
+    {
+        this.mp = mp;
+    }
+
+    public JLabel getAltas()
+    {
+        return altas;
+    }
+
+    public void setAltas(JLabel altas)
+    {
+        this.altas = altas;
+    }
+
+    public JLabel getBajas()
+    {
+        return bajas;
+    }
+
+    public void setBajas(JLabel bajas)
+    {
+        this.bajas = bajas;
+    }
+
+    public JLabel getConsultas()
+    {
+        return consultas;
+    }
+
+    public void setConsultas(JLabel consultas)
+    {
+        this.consultas = consultas;
+    }
+
+    public JPanel getFondoOpc()
+    {
+        return fondoOpc;
+    }
+
+    public void setFondoOpc(JPanel fondoOpc)
+    {
+        this.fondoOpc = fondoOpc;
+    }
+
+    public JLabel getMover()
+    {
+        return mover;
+    }
+
+    public void setMover(JLabel mover)
+    {
+        this.mover = mover;
+    }
+
+    public JLabel getSalir()
+    {
+        return salir;
+    }
+
+    public void setSalir(JLabel salir)
+    {
+        this.salir = salir;
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel altas;

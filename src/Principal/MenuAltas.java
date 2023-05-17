@@ -14,14 +14,16 @@ import java.awt.BorderLayout;
 public class MenuAltas extends javax.swing.JPanel
 {
     MenuP mp = new MenuP();
+    MenuAdmin mi = new MenuAdmin(mp);
 
     /**
      * Creates new form menuAltas
      */
-    public MenuAltas(MenuP m)
+    public MenuAltas(MenuP m, MenuAdmin mnu)
     {
         initComponents();
         mp = m;
+        mi = mnu;
     }
 
     /**
@@ -66,6 +68,13 @@ public class MenuAltas extends javax.swing.JPanel
         ciudad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Ciudad.png"))); // NOI18N
         ciudad.setText("Dar de alta una Ciudad");
         ciudad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ciudad.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                ciudadMouseClicked(evt);
+            }
+        });
 
         sucursal.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 14)); // NOI18N
         sucursal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -73,6 +82,13 @@ public class MenuAltas extends javax.swing.JPanel
         sucursal.setText("Dar de alta una Sucursal");
         sucursal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         sucursal.setPreferredSize(new java.awt.Dimension(191, 71));
+        sucursal.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                sucursalMouseClicked(evt);
+            }
+        });
 
         producto.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 14)); // NOI18N
         producto.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -80,6 +96,13 @@ public class MenuAltas extends javax.swing.JPanel
         producto.setText("Añadir Producto");
         producto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         producto.setPreferredSize(new java.awt.Dimension(151, 71));
+        producto.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                productoMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -131,11 +154,51 @@ public class MenuAltas extends javax.swing.JPanel
         AltaFarmacia af = new AltaFarmacia();
         af.setSize(975, 600);
         af.setLocation(105, 0);
+        mi.getAltas().setIcon(farmacia.getIcon());
         mp.getFondo().remove(mp.getFondoAB());
         mp.getFondo().add(af, BorderLayout.CENTER);
         mp.getFondo().revalidate();
         mp.getFondo().repaint();
     }//GEN-LAST:event_farmaciaMouseClicked
+
+    private void ciudadMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_ciudadMouseClicked
+    {//GEN-HEADEREND:event_ciudadMouseClicked
+        // TODO add your handling code here:
+        AltaCiudad ac = new AltaCiudad();
+        ac.setSize(975, 600);
+        ac.setLocation(105, 0);
+        mi.getAltas().setIcon(ciudad.getIcon());
+        mp.getFondo().remove(mp.getFondoAB());
+        mp.getFondo().add(ac, BorderLayout.CENTER);
+        mp.getFondo().revalidate();
+        mp.getFondo().repaint();
+    }//GEN-LAST:event_ciudadMouseClicked
+
+    private void sucursalMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_sucursalMouseClicked
+    {//GEN-HEADEREND:event_sucursalMouseClicked
+        // TODO add your handling code here:
+        AltaSucursal as = new AltaSucursal();
+        as.setSize(975,600);
+        as.setLocation(105, 0);
+        mi.getAltas().setIcon(sucursal.getIcon());
+        mp.getFondo().remove(mp.getFondoAB());
+        mp.getFondo().add(as, BorderLayout.CENTER);
+        mp.getFondo().revalidate();
+        mp.getFondo().repaint();
+    }//GEN-LAST:event_sucursalMouseClicked
+
+    private void productoMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_productoMouseClicked
+    {//GEN-HEADEREND:event_productoMouseClicked
+        // TODO add your handling code here:
+        AltaProducto ap = new AltaProducto();
+        ap.setSize(975,600);
+        ap.setLocation(105,0);
+        mi.getAltas().setIcon(producto.getIcon());
+        mp.getFondo().remove(mp.getFondoAB());
+        mp.getFondo().add(ap, BorderLayout.CENTER);
+        mp.getFondo().revalidate();
+        mp.getFondo().repaint();
+    }//GEN-LAST:event_productoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

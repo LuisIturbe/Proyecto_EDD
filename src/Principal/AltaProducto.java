@@ -9,13 +9,13 @@ package Principal;
  *
  * @author Liliana
  */
-public class AltaFarmacia extends javax.swing.JPanel
+public class AltaProducto extends javax.swing.JPanel
 {
 
     /**
      * Creates new form AltaFarmacia
      */
-    public AltaFarmacia()
+    public AltaProducto()
     {
         initComponents();
     }
@@ -37,7 +37,7 @@ public class AltaFarmacia extends javax.swing.JPanel
         jButton1 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 36)); // NOI18N
-        jLabel1.setText("Dar de alta una franquicia");
+        jLabel1.setText("Dar de alta un medicamento");
 
         jTextField1.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 14)); // NOI18N
         jTextField1.addActionListener(new java.awt.event.ActionListener()
@@ -49,7 +49,7 @@ public class AltaFarmacia extends javax.swing.JPanel
         });
 
         jLabel2.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 14)); // NOI18N
-        jLabel2.setText("Ingrese el nombre de la Franquicia");
+        jLabel2.setText("Ingrese el nombre del medicamento");
 
         jButton1.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 14)); // NOI18N
         jButton1.setText("Agregar");
@@ -78,7 +78,7 @@ public class AltaFarmacia extends javax.swing.JPanel
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(jLabel1)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,7 +100,7 @@ public class AltaFarmacia extends javax.swing.JPanel
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 339, Short.MAX_VALUE))
+                .addGap(0, 410, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

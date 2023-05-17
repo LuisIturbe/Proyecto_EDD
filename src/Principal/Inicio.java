@@ -36,17 +36,34 @@ public class Inicio extends javax.swing.JFrame
     private void initComponents()
     {
 
+        ubiF = new javax.swing.JLabel();
+        ubiAt = new javax.swing.JLabel();
+        invAt = new javax.swing.JLabel();
+        invF = new javax.swing.JLabel();
         fondo = new javax.swing.JPanel();
         tit = new javax.swing.JLabel();
         tit2 = new javax.swing.JLabel();
         iniSes = new javax.swing.JLabel();
         reg = new javax.swing.JLabel();
         menu = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        inventario = new javax.swing.JLabel();
+        ubicacion = new javax.swing.JLabel();
         bgInSes = new javax.swing.JPanel();
+
+        ubiF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Lugar.png"))); // NOI18N
+
+        ubiAt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/UbiAt.png"))); // NOI18N
+
+        invAt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/InventarioA.png"))); // NOI18N
+
+        invF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Inventario.png"))); // NOI18N
+        invF.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseEntered(java.awt.event.MouseEvent evt)
+            {
+                invFMouseEntered(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PHARMACY PLUS");
@@ -63,6 +80,13 @@ public class Inicio extends javax.swing.JFrame
         });
 
         fondo.setBackground(new java.awt.Color(0, 140, 188));
+        fondo.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseEntered(java.awt.event.MouseEvent evt)
+            {
+                fondoMouseEntered(evt);
+            }
+        });
 
         tit.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 36)); // NOI18N
         tit.setForeground(new java.awt.Color(255, 255, 255));
@@ -98,15 +122,26 @@ public class Inicio extends javax.swing.JFrame
         menu.setForeground(new java.awt.Color(255, 255, 255));
         menu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/menu.png"))); // NOI18N
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Lugar.png"))); // NOI18N
+        inventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Inventario.png"))); // NOI18N
+        inventario.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseEntered(java.awt.event.MouseEvent evt)
+            {
+                inventarioMouseEntered(evt);
+            }
+        });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Lugar.png"))); // NOI18N
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Lugar.png"))); // NOI18N
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Lugar.png"))); // NOI18N
+        ubicacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Lugar.png"))); // NOI18N
+        ubicacion.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseEntered(java.awt.event.MouseEvent evt)
+            {
+                ubicacionMouseEntered(evt);
+            }
+        });
 
         bgInSes.setBackground(new java.awt.Color(0, 140, 188));
+        bgInSes.setPreferredSize(new java.awt.Dimension(296, 320));
 
         javax.swing.GroupLayout bgInSesLayout = new javax.swing.GroupLayout(bgInSes);
         bgInSes.setLayout(bgInSesLayout);
@@ -123,66 +158,56 @@ public class Inicio extends javax.swing.JFrame
         fondo.setLayout(fondoLayout);
         fondoLayout.setHorizontalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fondoLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fondoLayout.createSequentialGroup()
-                        .addComponent(bgInSes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(69, 69, 69)
                         .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(59, 59, 59)
-                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(fondoLayout.createSequentialGroup()
+                                .addGap(42, 42, 42)
+                                .addComponent(tit))
+                            .addComponent(tit2, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 435, Short.MAX_VALUE))
                     .addGroup(fondoLayout.createSequentialGroup()
-                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tit)
-                            .addComponent(tit2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 435, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ubicacion)
+                        .addGap(65, 65, 65)
+                        .addComponent(inventario)
+                        .addGap(58, 58, 58)))
+                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bgInSes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(fondoLayout.createSequentialGroup()
                         .addComponent(iniSes)
                         .addGap(18, 18, 18)
                         .addComponent(reg)
                         .addGap(13, 13, 13)
-                        .addComponent(menu)
-                        .addGap(42, 42, 42))))
+                        .addComponent(menu)))
+                .addGap(42, 42, 42))
         );
         fondoLayout.setVerticalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
-                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(iniSes)
-                            .addComponent(reg)))
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(tit)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tit2))
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(39, 39, 39)
+                .addGap(23, 23, 23)
+                .addComponent(tit)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(tit2)
+                    .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(fondoLayout.createSequentialGroup()
+                            .addGap(6, 6, 6)
+                            .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(iniSes)
+                                .addComponent(reg)))
                         .addComponent(menu)))
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fondoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                        .addGap(45, 45, 45)
                         .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel3))
-                            .addGroup(fondoLayout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel2)))
-                        .addGap(87, 87, 87))
+                            .addComponent(ubicacion)
+                            .addComponent(inventario)))
                     .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(bgInSes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(35, 35, 35)
+                        .addComponent(bgInSes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(134, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -236,6 +261,30 @@ public class Inicio extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
 
+    private void ubicacionMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_ubicacionMouseEntered
+    {//GEN-HEADEREND:event_ubicacionMouseEntered
+        // TODO add your handling code here:
+        ubicacion.setIcon(ubiAt.getIcon());
+    }//GEN-LAST:event_ubicacionMouseEntered
+
+    private void fondoMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_fondoMouseEntered
+    {//GEN-HEADEREND:event_fondoMouseEntered
+        // TODO add your handling code here:
+        ubicacion.setIcon(ubiF.getIcon());
+        inventario.setIcon(invF.getIcon());
+    }//GEN-LAST:event_fondoMouseEntered
+
+    private void inventarioMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_inventarioMouseEntered
+    {//GEN-HEADEREND:event_inventarioMouseEntered
+        // TODO add your handling code here:
+        inventario.setIcon(invAt.getIcon());
+    }//GEN-LAST:event_inventarioMouseEntered
+
+    private void invFMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_invFMouseEntered
+    {//GEN-HEADEREND:event_invFMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_invFMouseEntered
+
     /**
      * @param args the command line arguments
      */
@@ -286,13 +335,15 @@ public class Inicio extends javax.swing.JFrame
     private javax.swing.JPanel bgInSes;
     private javax.swing.JPanel fondo;
     private javax.swing.JLabel iniSes;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel invAt;
+    private javax.swing.JLabel invF;
+    private javax.swing.JLabel inventario;
     private javax.swing.JLabel menu;
     private javax.swing.JLabel reg;
     private javax.swing.JLabel tit;
     private javax.swing.JLabel tit2;
+    private javax.swing.JLabel ubiAt;
+    private javax.swing.JLabel ubiF;
+    private javax.swing.JLabel ubicacion;
     // End of variables declaration//GEN-END:variables
 }

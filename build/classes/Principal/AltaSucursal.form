@@ -18,7 +18,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="339" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="359" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -81,7 +81,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Copperplate Gothic Light" size="36" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Dar de alta una franquicia"/>
+            <Property name="text" type="java.lang.String" value="Dar de alta una Sucursal"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField1">
@@ -99,7 +99,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Copperplate Gothic Light" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ingrese el nombre de la Franquicia"/>
+            <Property name="text" type="java.lang.String" value="Ingrese el nombre de la sucursal"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">
