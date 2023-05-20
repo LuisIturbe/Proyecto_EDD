@@ -43,6 +43,9 @@
           <Dimension value="[105, 600]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fondoOpcMouseClicked"/>
+      </Events>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -98,7 +101,13 @@
               <Image iconType="3" name="/Iconos/Baja.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Bajas"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor de Mano"/>
+            </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bajasMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="consultas">
           <Properties>
@@ -107,6 +116,9 @@
               <Image iconType="3" name="/Iconos/Consultas.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Consultas"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor de Mano"/>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="mover">
@@ -116,6 +128,9 @@
               <Image iconType="3" name="/Iconos/Mover.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Mover Productos"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor de Mano"/>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="salir">
@@ -125,7 +140,13 @@
               <Image iconType="3" name="/Iconos/Salir.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Salir de la Cuenta"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor de Mano"/>
+            </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="salirMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

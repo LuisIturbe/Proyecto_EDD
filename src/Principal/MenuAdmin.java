@@ -49,6 +49,13 @@ public class MenuAdmin extends javax.swing.JPanel
 
         fondoOpc.setBackground(new java.awt.Color(0, 140, 188));
         fondoOpc.setPreferredSize(new java.awt.Dimension(105, 600));
+        fondoOpc.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                fondoOpcMouseClicked(evt);
+            }
+        });
 
         altas.setForeground(java.awt.Color.lightGray);
         altas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -66,18 +73,36 @@ public class MenuAdmin extends javax.swing.JPanel
         bajas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         bajas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Baja.png"))); // NOI18N
         bajas.setToolTipText("Bajas");
+        bajas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bajas.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                bajasMouseClicked(evt);
+            }
+        });
 
         consultas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         consultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Consultas.png"))); // NOI18N
         consultas.setToolTipText("Consultas");
+        consultas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         mover.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Mover.png"))); // NOI18N
         mover.setToolTipText("Mover Productos");
+        mover.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         salir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Salir.png"))); // NOI18N
         salir.setToolTipText("Salir de la Cuenta");
+        salir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        salir.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                salirMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout fondoOpcLayout = new javax.swing.GroupLayout(fondoOpc);
         fondoOpc.setLayout(fondoOpcLayout);
@@ -130,6 +155,38 @@ public class MenuAdmin extends javax.swing.JPanel
         mp.getFondoAB().revalidate();
         mp.getFondoAB().repaint();
     }//GEN-LAST:event_altasMouseClicked
+
+    private void bajasMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_bajasMouseClicked
+    {//GEN-HEADEREND:event_bajasMouseClicked
+        // TODO add your handling code here:
+        MenuBajas ma = new MenuBajas(mp, MenuAdmin.this);
+        ma.setSize(308, 374);
+        ma.setLocation(0, 0);
+        mp.getFondoAB().removeAll();
+        mp.getFondoAB().add(ma, BorderLayout.CENTER);
+        mp.getFondoAB().revalidate();
+        mp.getFondoAB().repaint();
+    }//GEN-LAST:event_bajasMouseClicked
+
+    private void fondoOpcMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_fondoOpcMouseClicked
+    {//GEN-HEADEREND:event_fondoOpcMouseClicked
+        // TODO add your handling code here:
+        mp.getFondoAB().removeAll();
+        mp.getFondoAB().revalidate();
+        mp.getFondoAB().repaint();
+    }//GEN-LAST:event_fondoOpcMouseClicked
+
+    private void salirMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_salirMouseClicked
+    {//GEN-HEADEREND:event_salirMouseClicked
+        // TODO add your handling code here:
+        Inicio in = new Inicio();
+        in.setSize(1080,600);
+        in.setLocation(0,0);
+        mp.getFondo().removeAll();
+        mp.getFondo().add(in);
+        mp.getFondo().revalidate();
+        mp.getFondo().repaint();
+    }//GEN-LAST:event_salirMouseClicked
 
     public MenuP getMp()
     {

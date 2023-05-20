@@ -11,7 +11,7 @@ import java.awt.BorderLayout;
  *
  * @author Liliana
  */
-public class MenuAltas extends javax.swing.JPanel
+public class MenuBajas extends javax.swing.JPanel
 {
     MenuP mp = new MenuP();
     MenuAdmin mi = new MenuAdmin(mp);
@@ -19,7 +19,7 @@ public class MenuAltas extends javax.swing.JPanel
     /**
      * Creates new form menuAltas
      */
-    public MenuAltas(MenuP m, MenuAdmin mnu)
+    public MenuBajas(MenuP m, MenuAdmin mnu)
     {
         initComponents();
         mp = m;
@@ -50,7 +50,7 @@ public class MenuAltas extends javax.swing.JPanel
         farmacia.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 14)); // NOI18N
         farmacia.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         farmacia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Farmacias.png"))); // NOI18N
-        farmacia.setText("Dar de alta una Farmacia");
+        farmacia.setText("Dar de baja una Farmacia");
         farmacia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         farmacia.setMaximumSize(new java.awt.Dimension(184, 71));
         farmacia.setMinimumSize(new java.awt.Dimension(184, 71));
@@ -66,7 +66,7 @@ public class MenuAltas extends javax.swing.JPanel
         ciudad.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 14)); // NOI18N
         ciudad.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ciudad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Ciudad.png"))); // NOI18N
-        ciudad.setText("Dar de alta una Ciudad");
+        ciudad.setText("Dar de baja una Ciudad");
         ciudad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ciudad.addMouseListener(new java.awt.event.MouseAdapter()
         {
@@ -79,7 +79,7 @@ public class MenuAltas extends javax.swing.JPanel
         sucursal.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 14)); // NOI18N
         sucursal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         sucursal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Sucursal.png"))); // NOI18N
-        sucursal.setText("Dar de alta una Sucursal");
+        sucursal.setText("Dar de baja una Sucursal");
         sucursal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         sucursal.setPreferredSize(new java.awt.Dimension(191, 71));
         sucursal.addMouseListener(new java.awt.event.MouseAdapter()
@@ -93,7 +93,7 @@ public class MenuAltas extends javax.swing.JPanel
         producto.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 14)); // NOI18N
         producto.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         producto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Producto.png"))); // NOI18N
-        producto.setText("Añadir Producto");
+        producto.setText("Eliminar Producto");
         producto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         producto.setPreferredSize(new java.awt.Dimension(151, 71));
         producto.addMouseListener(new java.awt.event.MouseAdapter()
@@ -151,10 +151,10 @@ public class MenuAltas extends javax.swing.JPanel
     private void farmaciaMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_farmaciaMouseClicked
     {//GEN-HEADEREND:event_farmaciaMouseClicked
         // TODO add your handling code here:
-        AltaFarmacia af = new AltaFarmacia();
+        BajaFarmacia af = new BajaFarmacia();
         af.setSize(975, 600);
         af.setLocation(0, 0);
-        mi.getAltas().setIcon(farmacia.getIcon());
+        mi.getBajas().setIcon(farmacia.getIcon());
         mp.getFondoAB().removeAll();
         mp.getFondoAB().add(af, BorderLayout.CENTER);
         mp.getFondoAB().revalidate();
@@ -164,10 +164,10 @@ public class MenuAltas extends javax.swing.JPanel
     private void ciudadMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_ciudadMouseClicked
     {//GEN-HEADEREND:event_ciudadMouseClicked
         // TODO add your handling code here:
-        AltaCiudad ac = new AltaCiudad();
+        BajaCiudad ac = new BajaCiudad();
         ac.setSize(975, 600);
         ac.setLocation(0, 0);
-        mi.getAltas().setIcon(ciudad.getIcon());
+        mi.getBajas().setIcon(ciudad.getIcon());
         mp.getFondoAB().removeAll();
         mp.getFondoAB().add(ac, BorderLayout.CENTER);
         mp.getFondoAB().revalidate();
@@ -177,10 +177,10 @@ public class MenuAltas extends javax.swing.JPanel
     private void sucursalMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_sucursalMouseClicked
     {//GEN-HEADEREND:event_sucursalMouseClicked
         // TODO add your handling code here:
-        AltaSucursal as = new AltaSucursal();
+        BajaSucursal as = new BajaSucursal();
         as.setSize(975,600);
         as.setLocation(0, 0);
-        mi.getAltas().setIcon(sucursal.getIcon());
+        mi.getBajas().setIcon(sucursal.getIcon());
         mp.getFondoAB().removeAll();
         mp.getFondoAB().add(as, BorderLayout.CENTER);
         mp.getFondoAB().revalidate();
@@ -190,10 +190,10 @@ public class MenuAltas extends javax.swing.JPanel
     private void productoMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_productoMouseClicked
     {//GEN-HEADEREND:event_productoMouseClicked
         // TODO add your handling code here:
-        AltaProducto ap = new AltaProducto();
+        BajaProducto ap = new BajaProducto();
         ap.setSize(975,600);
         ap.setLocation(0,0);
-        mi.getAltas().setIcon(producto.getIcon());
+        mi.getBajas().setIcon(producto.getIcon());
         mp.getFondoAB().removeAll();
         mp.getFondoAB().add(ap, BorderLayout.CENTER);
         mp.getFondoAB().revalidate();
