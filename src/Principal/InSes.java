@@ -6,6 +6,9 @@
 package Principal;
 
 import java.awt.BorderLayout;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -16,18 +19,20 @@ import javax.swing.JPanel;
 public class InSes extends javax.swing.JPanel
 {
 
-    ArregloDinamico arr;
-    Usuario user;
-    JPanel fondo;
+    ArregloDinamico arr = new ArregloDinamico();
+    Usuario user = new Usuario();
+    JPanel fondo = new JPanel();
+    Multilistas multiLS = new Multilistas();
 
     /**
      * Creates new form Registro
      */
-    public InSes(ArregloDinamico arrU, JPanel fnd)
+    public InSes(ArregloDinamico arrU, JPanel fnd, Multilistas ms)
     {
         initComponents();
         arr = arrU;
         fondo = fnd;
+        multiLS = ms;
     }
 
     /**
@@ -40,7 +45,7 @@ public class InSes extends javax.swing.JPanel
     private void initComponents()
     {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanel1 = new fondoPanel();
         tit = new javax.swing.JLabel();
         usuario = new javax.swing.JLabel();
         txtUser = new javax.swing.JTextField();
@@ -180,27 +185,21 @@ public class InSes extends javax.swing.JPanel
                 mp.setSize(1080, 600);
                 mp.setLocation(0, 0);
                 fondo.removeAll();
-                fondo.add(mp, BorderLayout.CENTER);
+                fondo.add(mp);
                 fondo.revalidate();
                 fondo.repaint();
-                if (arr.tipoUser(txtUser.getText()))
+                if (!arr.tipoUser(txtUser.getText()))
                 {
-                    MenuAdmin mnu = new MenuAdmin(mp);
+                    MenuAdmin mnu = new MenuAdmin(mp, multiLS);
                     mnu.setSize(105, 600);
                     mnu.setLocation(0, 0);
                     mp.getFondoOpc().removeAll();
-                    mp.getFondoOpc().add(mnu,BorderLayout.CENTER);
+                    mp.getFondoOpc().add(mnu);
                     mp.getFondoOpc().revalidate();
                     mp.getFondoOpc().repaint();
                 } else
                 {
-                    MenuAdmin mnu = new MenuAdmin(mp);
-                    mnu.setSize(105, 600);
-                    mnu.setLocation(0, 0);
-                    mp.getFondoOpc().removeAll();
-                    mp.getFondoOpc().add(mnu, BorderLayout.CENTER);
-                    mp.getFondoOpc().revalidate();
-                    mp.getFondoOpc().repaint();
+                    
                 }
             }
         }
@@ -216,31 +215,35 @@ public class InSes extends javax.swing.JPanel
             mp.setSize(1080, 600);
             mp.setLocation(0, 0);
             fondo.removeAll();
-            fondo.add(mp, BorderLayout.CENTER);
+            fondo.add(mp);
             fondo.revalidate();
             fondo.repaint();
-            if (arr.tipoUser(txtUser.getText()))
+            if (!arr.tipoUser(txtUser.getText()))
             {
-                MenuAdmin mnu = new MenuAdmin(mp);
+                MenuAdmin mnu = new MenuAdmin(mp, multiLS);
                 mnu.setSize(105, 600);
                 mnu.setLocation(0, 0);
                 mp.getFondoOpc().removeAll();
-                mp.getFondoOpc().add(mnu, BorderLayout.CENTER);
+                mp.getFondoOpc().add(mnu);
                 mp.getFondoOpc().revalidate();
                 mp.getFondoOpc().repaint();
             } else
             {
-                MenuAdmin mnu = new MenuAdmin(mp);
-                mnu.setSize(105, 600);
-                mnu.setLocation(0, 0);
-                mp.getFondoOpc().removeAll();
-                mp.getFondoOpc().add(mnu, BorderLayout.CENTER);
-                mp.getFondoOpc().revalidate();
-                mp.getFondoOpc().repaint();
             }
         }
     }//GEN-LAST:event_jButton1MouseClicked
-
+    class fondoPanel extends JPanel
+    {
+        private Image imagen;
+        @Override
+        public void paint(Graphics g)
+        {
+            imagen = new ImageIcon(getClass().getResource("/Iconos/bgRI.png")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+            super.paint(g);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel contra;

@@ -6,6 +6,9 @@
 package Principal;
 
 import java.awt.BorderLayout;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
@@ -21,6 +24,7 @@ public class MenuP extends javax.swing.JPanel
     public MenuP()
     {
         initComponents();
+        
     }
 
     /**
@@ -33,28 +37,17 @@ public class MenuP extends javax.swing.JPanel
     private void initComponents()
     {
 
-        fondo = new javax.swing.JPanel();
-        fondoAB = new javax.swing.JPanel();
+        fondo = new fondoPanel();
         fondoOpc = new javax.swing.JPanel();
+        fondoAB = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(220, 220, 220));
+        setPreferredSize(new java.awt.Dimension(1080, 600));
         setVerifyInputWhenFocusTarget(false);
 
         fondo.setBackground(new java.awt.Color(220, 220, 220));
         fondo.setToolTipText("Altas");
-
-        fondoAB.setBackground(new java.awt.Color(220, 220, 220));
-
-        javax.swing.GroupLayout fondoABLayout = new javax.swing.GroupLayout(fondoAB);
-        fondoAB.setLayout(fondoABLayout);
-        fondoABLayout.setHorizontalGroup(
-            fondoABLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 556, Short.MAX_VALUE)
-        );
-        fondoABLayout.setVerticalGroup(
-            fondoABLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 374, Short.MAX_VALUE)
-        );
+        fondo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         fondoOpc.setBackground(new java.awt.Color(0, 140, 188));
 
@@ -69,33 +62,52 @@ public class MenuP extends javax.swing.JPanel
             .addGap(0, 600, Short.MAX_VALUE)
         );
 
+        fondoAB.setBackground(new java.awt.Color(220, 220, 220));
+        fondoAB.setOpaque(false);
+
+        javax.swing.GroupLayout fondoABLayout = new javax.swing.GroupLayout(fondoAB);
+        fondoAB.setLayout(fondoABLayout);
+        fondoABLayout.setHorizontalGroup(
+            fondoABLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 726, Short.MAX_VALUE)
+        );
+        fondoABLayout.setVerticalGroup(
+            fondoABLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 476, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout fondoLayout = new javax.swing.GroupLayout(fondo);
         fondo.setLayout(fondoLayout);
         fondoLayout.setHorizontalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoLayout.createSequentialGroup()
                 .addComponent(fondoOpc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fondoAB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 363, Short.MAX_VALUE))
+                .addContainerGap(243, Short.MAX_VALUE))
         );
         fondoLayout.setVerticalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondoOpc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(fondoLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(fondoAB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(fondoOpc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fondoAB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -136,4 +148,16 @@ public class MenuP extends javax.swing.JPanel
         this.fondo = fondo;
     }
     
+    class fondoPanel extends JPanel
+    {
+        private Image imagen;
+        @Override
+        public void paint(Graphics g)
+        {
+            imagen = new ImageIcon(getClass().getResource("/Iconos/bgP.png")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+            super.paint(g);
+        }
+    }
 }

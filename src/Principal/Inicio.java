@@ -7,6 +7,7 @@ package Principal;
 
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
@@ -16,7 +17,8 @@ public class Inicio extends javax.swing.JFrame
 {
 
     ArregloDinamico arrU = new ArregloDinamico();
-    
+    Multilistas multiLS = new Multilistas();
+    boolean r = false, i = false;
 
     /**
      * Creates new form Inicio
@@ -40,15 +42,28 @@ public class Inicio extends javax.swing.JFrame
         ubiAt = new javax.swing.JLabel();
         invAt = new javax.swing.JLabel();
         invF = new javax.swing.JLabel();
+        orgF = new javax.swing.JLabel();
+        orgA = new javax.swing.JLabel();
+        busF = new javax.swing.JLabel();
+        busA = new javax.swing.JLabel();
         fondo = new javax.swing.JPanel();
-        tit = new javax.swing.JLabel();
-        tit2 = new javax.swing.JLabel();
+        titulo = new javax.swing.JPanel();
         iniSes = new javax.swing.JLabel();
         reg = new javax.swing.JLabel();
-        menu = new javax.swing.JLabel();
+        tit = new javax.swing.JLabel();
+        tit2 = new javax.swing.JLabel();
+        logo = new javax.swing.JLabel();
         inventario = new javax.swing.JLabel();
+        organizacion = new javax.swing.JLabel();
         ubicacion = new javax.swing.JLabel();
-        bgInSes = new javax.swing.JPanel();
+        busqueda = new javax.swing.JLabel();
+        tit1 = new javax.swing.JLabel();
+        tit3 = new javax.swing.JLabel();
+        tit4 = new javax.swing.JLabel();
+        tit5 = new javax.swing.JLabel();
+        tit6 = new javax.swing.JLabel();
+        tit7 = new javax.swing.JLabel();
+        tit8 = new javax.swing.JLabel();
 
         ubiF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Lugar.png"))); // NOI18N
 
@@ -64,6 +79,14 @@ public class Inicio extends javax.swing.JFrame
                 invFMouseEntered(evt);
             }
         });
+
+        orgF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Organizacion.png"))); // NOI18N
+
+        orgA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/OrganizacionA.png"))); // NOI18N
+
+        busF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Busqueda.png"))); // NOI18N
+
+        busA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/BusquedaA.png"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PHARMACY PLUS");
@@ -81,24 +104,25 @@ public class Inicio extends javax.swing.JFrame
         });
 
         fondo.setBackground(new java.awt.Color(0, 140, 188));
+        fondo.setPreferredSize(new java.awt.Dimension(1080, 600));
         fondo.addMouseListener(new java.awt.event.MouseAdapter()
         {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                fondoMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt)
             {
                 fondoMouseEntered(evt);
             }
         });
 
-        tit.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 36)); // NOI18N
-        tit.setForeground(new java.awt.Color(255, 255, 255));
-        tit.setText("PHARMACY");
-
-        tit2.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 36)); // NOI18N
-        tit2.setForeground(new java.awt.Color(255, 255, 255));
-        tit2.setText("PLUS");
+        titulo.setBackground(new java.awt.Color(40, 40, 40));
+        titulo.setForeground(new java.awt.Color(60, 63, 65));
 
         iniSes.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 18)); // NOI18N
         iniSes.setForeground(new java.awt.Color(255, 255, 255));
+        iniSes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/InSes.png"))); // NOI18N
         iniSes.setText("Iniciar Sesión");
         iniSes.addMouseListener(new java.awt.event.MouseAdapter()
         {
@@ -110,6 +134,7 @@ public class Inicio extends javax.swing.JFrame
 
         reg.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 18)); // NOI18N
         reg.setForeground(new java.awt.Color(255, 255, 255));
+        reg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Reg.png"))); // NOI18N
         reg.setText("Registrarse");
         reg.addMouseListener(new java.awt.event.MouseAdapter()
         {
@@ -119,9 +144,51 @@ public class Inicio extends javax.swing.JFrame
             }
         });
 
-        menu.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
-        menu.setForeground(new java.awt.Color(255, 255, 255));
-        menu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/menu.png"))); // NOI18N
+        tit.setFont(new java.awt.Font("Copperplate Gothic Light", 3, 36)); // NOI18N
+        tit.setForeground(new java.awt.Color(255, 255, 255));
+        tit.setText("PHARMACY");
+
+        tit2.setFont(new java.awt.Font("Copperplate Gothic Light", 3, 36)); // NOI18N
+        tit2.setForeground(new java.awt.Color(255, 255, 255));
+        tit2.setText("PLUS");
+
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Logo.png"))); // NOI18N
+
+        javax.swing.GroupLayout tituloLayout = new javax.swing.GroupLayout(titulo);
+        titulo.setLayout(tituloLayout);
+        tituloLayout.setHorizontalGroup(
+            tituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tituloLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(tituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(tit, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tit2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(logo)
+                .addGap(320, 320, 320)
+                .addComponent(iniSes)
+                .addGap(26, 26, 26)
+                .addComponent(reg)
+                .addGap(108, 108, 108))
+        );
+        tituloLayout.setVerticalGroup(
+            tituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tituloLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(tituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(iniSes)
+                    .addComponent(reg))
+                .addGap(38, 38, 38))
+            .addGroup(tituloLayout.createSequentialGroup()
+                .addGap(3, 3, 3)
+                .addGroup(tituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tituloLayout.createSequentialGroup()
+                        .addComponent(tit)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(tit2))
+                    .addComponent(logo))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         inventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Inventario.png"))); // NOI18N
         inventario.addMouseListener(new java.awt.event.MouseAdapter()
@@ -129,6 +196,15 @@ public class Inicio extends javax.swing.JFrame
             public void mouseEntered(java.awt.event.MouseEvent evt)
             {
                 inventarioMouseEntered(evt);
+            }
+        });
+
+        organizacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Organizacion.png"))); // NOI18N
+        organizacion.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseEntered(java.awt.event.MouseEvent evt)
+            {
+                organizacionMouseEntered(evt);
             }
         });
 
@@ -141,85 +217,115 @@ public class Inicio extends javax.swing.JFrame
             }
         });
 
-        bgInSes.setBackground(new java.awt.Color(0, 140, 188));
-        bgInSes.setPreferredSize(new java.awt.Dimension(296, 320));
+        busqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Busqueda.png"))); // NOI18N
+        busqueda.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseEntered(java.awt.event.MouseEvent evt)
+            {
+                busquedaMouseEntered(evt);
+            }
+        });
 
-        javax.swing.GroupLayout bgInSesLayout = new javax.swing.GroupLayout(bgInSes);
-        bgInSes.setLayout(bgInSesLayout);
-        bgInSesLayout.setHorizontalGroup(
-            bgInSesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 296, Short.MAX_VALUE)
-        );
-        bgInSesLayout.setVerticalGroup(
-            bgInSesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 320, Short.MAX_VALUE)
-        );
+        tit1.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 18)); // NOI18N
+        tit1.setForeground(new java.awt.Color(255, 255, 255));
+        tit1.setText("¿buscas algún medicamento?");
+
+        tit3.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 18)); // NOI18N
+        tit3.setForeground(new java.awt.Color(255, 255, 255));
+        tit3.setText("Inicia sesión y descubre");
+
+        tit4.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 18)); // NOI18N
+        tit4.setForeground(new java.awt.Color(255, 255, 255));
+        tit4.setText("¿Buscas una farmacia?");
+
+        tit5.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 18)); // NOI18N
+        tit5.setForeground(new java.awt.Color(255, 255, 255));
+        tit5.setText("todas las funciones");
+
+        tit6.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 18)); // NOI18N
+        tit6.setForeground(new java.awt.Color(255, 255, 255));
+        tit6.setText("Porque tu salud");
+
+        tit7.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 18)); // NOI18N
+        tit7.setForeground(new java.awt.Color(255, 255, 255));
+        tit7.setText("que ofrecemos");
+
+        tit8.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 18)); // NOI18N
+        tit8.setForeground(new java.awt.Color(255, 255, 255));
+        tit8.setText("nos importa");
 
         javax.swing.GroupLayout fondoLayout = new javax.swing.GroupLayout(fondo);
         fondo.setLayout(fondoLayout);
         fondoLayout.setHorizontalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
-                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoLayout.createSequentialGroup()
+                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(fondoLayout.createSequentialGroup()
+                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tit1)
+                            .addComponent(tit3)
+                            .addComponent(tit4)
+                            .addComponent(tit5)
+                            .addComponent(tit6)
+                            .addComponent(tit7)
+                            .addComponent(tit8))
+                        .addGap(28, 28, 28)
                         .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(fondoLayout.createSequentialGroup()
-                                .addGap(42, 42, 42)
-                                .addComponent(tit))
-                            .addComponent(tit2, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 435, Short.MAX_VALUE))
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ubicacion)
-                        .addGap(65, 65, 65)
-                        .addComponent(inventario)
-                        .addGap(58, 58, 58)))
-                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bgInSes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addComponent(iniSes)
-                        .addGap(18, 18, 18)
-                        .addComponent(reg)
-                        .addGap(13, 13, 13)
-                        .addComponent(menu)))
-                .addGap(42, 42, 42))
+                            .addComponent(ubicacion)
+                            .addComponent(organizacion))
+                        .addGap(34, 34, 34)
+                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(busqueda)
+                            .addComponent(inventario))
+                        .addGap(435, 435, 435))
+                    .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         fondoLayout.setVerticalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(tit)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(tit2)
-                    .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(fondoLayout.createSequentialGroup()
-                            .addGap(6, 6, 6)
-                            .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(iniSes)
-                                .addComponent(reg)))
-                        .addComponent(menu)))
+            .addGroup(fondoLayout.createSequentialGroup()
+                .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ubicacion)
-                            .addComponent(inventario)))
+                        .addGap(91, 91, 91)
+                        .addComponent(tit1)
+                        .addGap(28, 28, 28)
+                        .addComponent(tit4)
+                        .addGap(33, 33, 33)
+                        .addComponent(tit3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tit5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tit7)
+                        .addGap(71, 71, 71)
+                        .addComponent(tit6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tit8))
                     .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(bgInSes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(134, Short.MAX_VALUE))
+                        .addGap(65, 65, 65)
+                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(ubicacion)
+                            .addComponent(inventario))
+                        .addGap(34, 34, 34)
+                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(organizacion)
+                            .addComponent(busqueda))))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -228,51 +334,81 @@ public class Inicio extends javax.swing.JFrame
 
     private void iniSesMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_iniSesMouseClicked
     {//GEN-HEADEREND:event_iniSesMouseClicked
-        InSes is = new InSes(arrU, fondo);
-        is.setSize(296, 320);
-        is.setLocation(0, 0);
-        bgInSes.removeAll();
-        bgInSes.add(is, BorderLayout.CENTER);
-        bgInSes.revalidate();
-        bgInSes.repaint();
+        if (r)
+        {
+            fondo.remove(fondo.getComponentAt(730, 100));
+            InSes ins = new InSes(arrU, fondo, multiLS);
+            ins.setSize(296, 320);
+            ins.setLocation(730, 100);
+            fondo.add(ins, BorderLayout.CENTER);
+            fondo.revalidate();
+            fondo.repaint();
+            i = true;
+            r = false;
+        } else
+        {
+            InSes ins = new InSes(arrU, fondo, multiLS);
+            ins.setSize(296, 320);
+            ins.setLocation(730, 100);
+            fondo.add(ins, BorderLayout.CENTER);
+            fondo.revalidate();
+            fondo.repaint();
+            i = true;
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_iniSesMouseClicked
 
     private void regMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_regMouseClicked
     {//GEN-HEADEREND:event_regMouseClicked
-        Reg reg = new Reg(arrU);
-        reg.setSize(296, 320);
-        reg.setLocation(0, 0);
-        bgInSes.removeAll();
-        bgInSes.add(reg, BorderLayout.CENTER);
-        bgInSes.revalidate();
-        bgInSes.repaint();
+        if (i)
+        {
+            fondo.remove(fondo.getComponentAt(730,100));
+            Reg reg = new Reg(arrU);
+            reg.setSize(296, 320);
+            reg.setLocation(730, 100);
+            fondo.add(reg, BorderLayout.CENTER);
+            fondo.revalidate();
+            fondo.repaint();
+            r = true;
+            i = false;
+        } else
+        {
+            Reg reg = new Reg(arrU);
+            reg.setSize(296, 320);
+            reg.setLocation(730, 100);
+            fondo.add(reg, BorderLayout.CENTER);
+            fondo.revalidate();
+            fondo.repaint();
+            r = true;
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_regMouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowOpened
     {//GEN-HEADEREND:event_formWindowOpened
-        
+
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowClosing(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowClosing
     {//GEN-HEADEREND:event_formWindowClosing
-        
+
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
 
-    private void ubicacionMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_ubicacionMouseEntered
-    {//GEN-HEADEREND:event_ubicacionMouseEntered
+    private void organizacionMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_organizacionMouseEntered
+    {//GEN-HEADEREND:event_organizacionMouseEntered
         // TODO add your handling code here:
-        ubicacion.setIcon(ubiAt.getIcon());
-    }//GEN-LAST:event_ubicacionMouseEntered
+        organizacion.setIcon(orgA.getIcon());
+    }//GEN-LAST:event_organizacionMouseEntered
 
     private void fondoMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_fondoMouseEntered
     {//GEN-HEADEREND:event_fondoMouseEntered
         // TODO add your handling code here:
         ubicacion.setIcon(ubiF.getIcon());
         inventario.setIcon(invF.getIcon());
+        organizacion.setIcon(orgF.getIcon());
+        busqueda.setIcon(busF.getIcon());
     }//GEN-LAST:event_fondoMouseEntered
 
     private void inventarioMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_inventarioMouseEntered
@@ -285,6 +421,26 @@ public class Inicio extends javax.swing.JFrame
     {//GEN-HEADEREND:event_invFMouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_invFMouseEntered
+
+    private void ubicacionMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_ubicacionMouseEntered
+    {//GEN-HEADEREND:event_ubicacionMouseEntered
+        // TODO add your handling code here:
+        ubicacion.setIcon(ubiAt.getIcon());
+    }//GEN-LAST:event_ubicacionMouseEntered
+
+    private void busquedaMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_busquedaMouseEntered
+    {//GEN-HEADEREND:event_busquedaMouseEntered
+        // TODO add your handling code here:
+        busqueda.setIcon(busA.getIcon());
+    }//GEN-LAST:event_busquedaMouseEntered
+
+    private void fondoMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_fondoMouseClicked
+    {//GEN-HEADEREND:event_fondoMouseClicked
+        // TODO add your handling code here:
+        fondo.remove(fondo.getComponentAt(730,100));
+        fondo.revalidate();
+        fondo.repaint();
+    }//GEN-LAST:event_fondoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -327,24 +483,59 @@ public class Inicio extends javax.swing.JFrame
             public void run()
             {
                 new Inicio().setVisible(true);
-                
+
             }
         });
     }
 
+    public JPanel getFondo()
+    {
+        return fondo;
+    }
+
+    public void setFondo(JPanel fondo)
+    {
+        this.fondo = fondo;
+    }
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel bgInSes;
+    private javax.swing.JLabel busA;
+    private javax.swing.JLabel busF;
+    private javax.swing.JLabel busqueda;
     private javax.swing.JPanel fondo;
     private javax.swing.JLabel iniSes;
     private javax.swing.JLabel invAt;
     private javax.swing.JLabel invF;
     private javax.swing.JLabel inventario;
-    private javax.swing.JLabel menu;
+    private javax.swing.JLabel logo;
+    private javax.swing.JLabel orgA;
+    private javax.swing.JLabel orgF;
+    private javax.swing.JLabel organizacion;
     private javax.swing.JLabel reg;
     private javax.swing.JLabel tit;
+    private javax.swing.JLabel tit1;
     private javax.swing.JLabel tit2;
+    private javax.swing.JLabel tit3;
+    private javax.swing.JLabel tit4;
+    private javax.swing.JLabel tit5;
+    private javax.swing.JLabel tit6;
+    private javax.swing.JLabel tit7;
+    private javax.swing.JLabel tit8;
+    private javax.swing.JPanel titulo;
     private javax.swing.JLabel ubiAt;
     private javax.swing.JLabel ubiF;
     private javax.swing.JLabel ubicacion;
     // End of variables declaration//GEN-END:variables
+
+    public JPanel getTitulo()
+    {
+        return titulo;
+    }
+
+    public void setTitulo(JPanel titulo)
+    {
+        this.titulo = titulo;
+    }
+
 }

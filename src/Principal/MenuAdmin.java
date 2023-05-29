@@ -17,15 +17,16 @@ import javax.swing.JPanel;
 public class MenuAdmin extends javax.swing.JPanel
 {
     MenuP mp = new MenuP();
-    
+    Multilistas multiLS = new Multilistas();
 
     /**
      * Creates new form MenuAdmin
      */
-    public MenuAdmin(MenuP m)
+    public MenuAdmin(MenuP m, Multilistas ms)
     {
         initComponents();
         mp = m;
+        multiLS = ms;
     }
 
     /**
@@ -117,17 +118,17 @@ public class MenuAdmin extends javax.swing.JPanel
         fondoOpcLayout.setVerticalGroup(
             fondoOpcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoOpcLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addGap(26, 26, 26)
                 .addComponent(altas)
-                .addGap(44, 44, 44)
+                .addGap(34, 34, 34)
                 .addComponent(bajas)
-                .addGap(44, 44, 44)
+                .addGap(50, 50, 50)
                 .addComponent(consultas)
-                .addGap(44, 44, 44)
+                .addGap(32, 32, 32)
                 .addComponent(mover)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
                 .addComponent(salir)
-                .addContainerGap())
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -147,7 +148,7 @@ public class MenuAdmin extends javax.swing.JPanel
     private void altasMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_altasMouseClicked
     {//GEN-HEADEREND:event_altasMouseClicked
         // TODO add your handling code here:
-        MenuAltas ma = new MenuAltas(mp, MenuAdmin.this);
+        MenuAltas ma = new MenuAltas(mp, MenuAdmin.this, multiLS);
         ma.setSize(308, 374);
         ma.setLocation(0, 0);
         mp.getFondoAB().removeAll();
@@ -161,7 +162,7 @@ public class MenuAdmin extends javax.swing.JPanel
         // TODO add your handling code here:
         MenuBajas ma = new MenuBajas(mp, MenuAdmin.this);
         ma.setSize(308, 374);
-        ma.setLocation(0, 0);
+        ma.setLocation(0, 129);
         mp.getFondoAB().removeAll();
         mp.getFondoAB().add(ma, BorderLayout.CENTER);
         mp.getFondoAB().revalidate();
@@ -180,10 +181,10 @@ public class MenuAdmin extends javax.swing.JPanel
     {//GEN-HEADEREND:event_salirMouseClicked
         // TODO add your handling code here:
         Inicio in = new Inicio();
-        in.setSize(1080,600);
-        in.setLocation(0,0);
+        in.getFondo().setSize(1080, 600);
+        in.getFondo().setLocation(0, 0);
         mp.getFondo().removeAll();
-        mp.getFondo().add(in);
+        mp.getFondo().add(in.getFondo());
         mp.getFondo().revalidate();
         mp.getFondo().repaint();
     }//GEN-LAST:event_salirMouseClicked

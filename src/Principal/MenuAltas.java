@@ -14,16 +14,18 @@ import java.awt.BorderLayout;
 public class MenuAltas extends javax.swing.JPanel
 {
     MenuP mp = new MenuP();
-    MenuAdmin mi = new MenuAdmin(mp);
+    Multilistas multiLS = new Multilistas();
+    MenuAdmin mi = new MenuAdmin(mp, multiLS);
 
     /**
      * Creates new form menuAltas
      */
-    public MenuAltas(MenuP m, MenuAdmin mnu)
+    public MenuAltas(MenuP m, MenuAdmin mnu, Multilistas ms)
     {
         initComponents();
         mp = m;
         mi = mnu;
+        multiLS = ms;
     }
 
     /**
@@ -151,8 +153,8 @@ public class MenuAltas extends javax.swing.JPanel
     private void farmaciaMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_farmaciaMouseClicked
     {//GEN-HEADEREND:event_farmaciaMouseClicked
         // TODO add your handling code here:
-        AltaFarmacia af = new AltaFarmacia();
-        af.setSize(975, 600);
+        AltaFarmacia af = new AltaFarmacia(multiLS);
+        af.setSize(576, 422);
         af.setLocation(0, 0);
         mi.getAltas().setIcon(farmacia.getIcon());
         mp.getFondoAB().removeAll();
@@ -164,8 +166,8 @@ public class MenuAltas extends javax.swing.JPanel
     private void ciudadMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_ciudadMouseClicked
     {//GEN-HEADEREND:event_ciudadMouseClicked
         // TODO add your handling code here:
-        AltaCiudad ac = new AltaCiudad();
-        ac.setSize(975, 600);
+        AltaCiudad ac = new AltaCiudad(multiLS);
+        ac.setSize(501, 432);
         ac.setLocation(0, 0);
         mi.getAltas().setIcon(ciudad.getIcon());
         mp.getFondoAB().removeAll();
@@ -177,8 +179,8 @@ public class MenuAltas extends javax.swing.JPanel
     private void sucursalMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_sucursalMouseClicked
     {//GEN-HEADEREND:event_sucursalMouseClicked
         // TODO add your handling code here:
-        AltaSucursal as = new AltaSucursal();
-        as.setSize(975,600);
+        AltaSucursal as = new AltaSucursal(multiLS);
+        as.setSize(556, 436);
         as.setLocation(0, 0);
         mi.getAltas().setIcon(sucursal.getIcon());
         mp.getFondoAB().removeAll();

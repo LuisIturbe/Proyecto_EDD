@@ -14,7 +14,8 @@ import java.awt.BorderLayout;
 public class MenuBajas extends javax.swing.JPanel
 {
     MenuP mp = new MenuP();
-    MenuAdmin mi = new MenuAdmin(mp);
+    Multilistas multiLS = new Multilistas();
+    MenuAdmin mi = new MenuAdmin(mp, multiLS);
 
     /**
      * Creates new form menuAltas

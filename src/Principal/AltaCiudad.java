@@ -5,6 +5,8 @@
  */
 package Principal;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Liliana
@@ -12,12 +14,16 @@ package Principal;
 public class AltaCiudad extends javax.swing.JPanel
 {
 
+    Multilistas multiLS = new Multilistas();
+
     /**
      * Creates new form AltaFarmacia
      */
-    public AltaCiudad()
+    public AltaCiudad(Multilistas ms)
     {
         initComponents();
+        multiLS = ms;
+        llenaF();
     }
 
     /**
@@ -32,19 +38,30 @@ public class AltaCiudad extends javax.swing.JPanel
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        nomCd = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        franquicias = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
+        nomMun = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        nomEdo = new javax.swing.JTextField();
+
+        setOpaque(false);
+
+        jPanel1.setOpaque(false);
 
         jLabel1.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 36)); // NOI18N
         jLabel1.setText("Dar de alta una Ciudad");
+        jLabel1.setOpaque(true);
 
-        jTextField1.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 14)); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener()
+        nomCd.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 14)); // NOI18N
+        nomCd.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                jTextField1ActionPerformed(evt);
+                nomCdActionPerformed(evt);
             }
         });
 
@@ -53,11 +70,53 @@ public class AltaCiudad extends javax.swing.JPanel
 
         jButton1.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 14)); // NOI18N
         jButton1.setText("Agregar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                jButton1MouseClicked(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 14)); // NOI18N
+        jLabel3.setText("Selecciona la franquicia");
+
+        franquicias.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                franquiciasActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 14)); // NOI18N
+        jLabel4.setText("Ingrese el nombre del municipio");
+
+        nomMun.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 14)); // NOI18N
+        nomMun.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                nomMunActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 14)); // NOI18N
+        jLabel5.setText("Ingrese el nombre del estado");
+
+        nomEdo.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 14)); // NOI18N
+        nomEdo.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                nomEdoActionPerformed(evt);
             }
         });
 
@@ -68,64 +127,125 @@ public class AltaCiudad extends javax.swing.JPanel
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(246, 246, 246)
-                        .addComponent(jButton1))
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2)
-                        .addGap(52, 52, 52)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel1)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel5))
+                            .addComponent(jLabel4))
+                        .addGap(46, 46, 46)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(nomMun)
+                            .addComponent(nomCd, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                            .addComponent(franquicias, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(nomEdo))))
+                .addGap(20, 26, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(196, 196, 196))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addGap(86, 86, 86)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(franquicias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nomCd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nomEdo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nomMun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addGap(20, 20, 20))
+                .addGap(14, 14, 14))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 410, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 306, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTextField1ActionPerformed
-    {//GEN-HEADEREND:event_jTextField1ActionPerformed
+    private void nomCdActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_nomCdActionPerformed
+    {//GEN-HEADEREND:event_nomCdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_nomCdActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
     {//GEN-HEADEREND:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void franquiciasActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_franquiciasActionPerformed
+    {//GEN-HEADEREND:event_franquiciasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_franquiciasActionPerformed
+
+    private void nomMunActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_nomMunActionPerformed
+    {//GEN-HEADEREND:event_nomMunActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomMunActionPerformed
+
+    private void nomEdoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_nomEdoActionPerformed
+    {//GEN-HEADEREND:event_nomEdoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomEdoActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jButton1MouseClicked
+    {//GEN-HEADEREND:event_jButton1MouseClicked
+        String s[] = new String[2];
+        Ciudades cd = new Ciudades();
+        cd.setCiudad(nomCd.getText().toLowerCase());
+        cd.setEstado(nomEdo.getText().toLowerCase());
+        cd.setMunicipio(nomMun.getText().toLowerCase());
+        s[0] = franquicias.getSelectedItem().toString();
+        s[1] = cd.getCiudad();
+        multiLS.setR(multiLS.inserta(multiLS.getR(), new NodoListas(cd, cd.getCiudad()), s, 0));
+        JOptionPane.showMessageDialog(this, "Registrado", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    public void llenaF()
+    {
+        Object a[];
+        a = multiLS.comboF(multiLS.getR());
+        for (int i = 0; i < a.length; i++)
+        {
+            franquicias.addItem(a[i].toString());
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> franquicias;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField nomCd;
+    private javax.swing.JTextField nomEdo;
+    private javax.swing.JTextField nomMun;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,7 +5,11 @@
  */
 package Principal;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -38,7 +42,7 @@ public class Reg extends javax.swing.JPanel
     private void initComponents()
     {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanel1 = new fondoPanel();
         tit = new javax.swing.JLabel();
         usuario = new javax.swing.JLabel();
         txtUser = new javax.swing.JTextField();
@@ -224,4 +228,16 @@ public class Reg extends javax.swing.JPanel
     private javax.swing.JTextField txtUser;
     private javax.swing.JLabel usuario;
     // End of variables declaration//GEN-END:variables
+    class fondoPanel extends JPanel
+    {
+        private Image imagen;
+        @Override
+        public void paint(Graphics g)
+        {
+            imagen = new ImageIcon(getClass().getResource("/Iconos/bgRI.png")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+            super.paint(g);
+        }
+    }
 }
