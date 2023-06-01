@@ -168,10 +168,11 @@ public class ListasCDLB
 
     public NodoListas busca(String s)
     {
-        if (r.getAnt().getEt().compareTo(s) < 0 || r.getEt().compareTo(s) > 0)
-        {
-            return null;
-        }
+//        if (r.getAnt().getEt().compareTo(s) < 0 || r.getEt().compareTo(s) > 0)
+//        {
+//            System.out.println("retorno null");
+//            return null;
+//        }
         if (r != null)
         {
             NodoListas aux = r.getSig();
@@ -181,10 +182,10 @@ public class ListasCDLB
                 {
                     return aux;
                 }
-                if (aux.getEt().compareTo(s) > 0)
-                {
-                    return null;
-                }
+//                if (aux.getEt().compareTo(s) > 0)
+//                {
+//                    return null;
+//                }
                 aux = aux.getSig();
             } while (aux != r.getSig());
         }
@@ -275,8 +276,9 @@ public class ListasCDLB
                 {
                     aux = aux.getSig();
                 }
-            } while (aux != r.getSig());
+            } while (aux != r.getSig());   
         }
         return arr.toArray();
     }
 }
+

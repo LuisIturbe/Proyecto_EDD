@@ -42,6 +42,10 @@ public class Multilistas
             if (aux != null)
             {
                 aux.setAbj(inserta(aux, n, s, nivel + 1));
+                System.out.println("Encontrado");
+            }else
+            {
+                System.out.println("No entro");
             }
             return r;
         }
@@ -85,6 +89,7 @@ public class Multilistas
     public Object[] comboC(NodoListas rn, String f)
     {
         Object aux[] = null;
+        
         ListasCDLB list = new ListasCDLB();
         list.setR(rn);
         aux = list.toArrayC(f);

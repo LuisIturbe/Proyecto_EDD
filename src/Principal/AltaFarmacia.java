@@ -50,7 +50,6 @@ public class AltaFarmacia extends javax.swing.JPanel
 
         jPanel1.setOpaque(false);
 
-        jLabel1.setBackground(new java.awt.Color(220, 220, 220));
         jLabel1.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 36)); // NOI18N
         jLabel1.setText("Dar de alta una franquicia");
         jLabel1.setOpaque(true);
@@ -224,8 +223,8 @@ public class AltaFarmacia extends javax.swing.JPanel
         far.setClave(clave.getText().toLowerCase());
         far.setTpSociedad(tpSoc.getText().toLowerCase());
         far.setRfc(rfc.getText().toLowerCase());
-        nivel[0] = nomF.getText();
-        multiLS.setR(multiLS.inserta(multiLS.getR(), new NodoListas(far, nomF.getText()), nivel, 0));
+        nivel[0] = far.getNombre();
+        multiLS.setR(multiLS.inserta(multiLS.getR(), new NodoListas(far, far.getNombre()), nivel, 0));
         JOptionPane.showMessageDialog(this, "Registrado", "Éxito", JOptionPane.INFORMATION_MESSAGE);
         
     }//GEN-LAST:event_jButton1MouseClicked

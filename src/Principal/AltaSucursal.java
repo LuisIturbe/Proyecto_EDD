@@ -5,6 +5,8 @@
  */
 package Principal;
 
+import javax.swing.JComboBox;
+
 /**
  *
  * @author Liliana
@@ -20,7 +22,6 @@ public class AltaSucursal extends javax.swing.JPanel
         initComponents();
         multiLS = ms;
         llenaF();
-        llenaC();
     }
 
     /**
@@ -46,9 +47,15 @@ public class AltaSucursal extends javax.swing.JPanel
         clvSuc = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         cp = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+
+        setOpaque(false);
+
+        jPanel1.setOpaque(false);
 
         jLabel1.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 36)); // NOI18N
         jLabel1.setText("Dar de alta una Sucursal");
+        jLabel1.setOpaque(true);
 
         jLabel2.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 14)); // NOI18N
         jLabel2.setText("seleccione la franquicia");
@@ -102,6 +109,15 @@ public class AltaSucursal extends javax.swing.JPanel
             }
         });
 
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/BusquedaIcon.png"))); // NOI18N
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                jLabel7MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -129,7 +145,9 @@ public class AltaSucursal extends javax.swing.JPanel
                                     .addComponent(clvSuc)
                                     .addComponent(ciudades, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(nomSuc, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cp))))))
+                                    .addComponent(cp))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7)))
                 .addContainerGap(30, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -142,9 +160,13 @@ public class AltaSucursal extends javax.swing.JPanel
                 .addGap(22, 22, 22)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(franquicias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel7))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(franquicias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -197,6 +219,11 @@ public class AltaSucursal extends javax.swing.JPanel
     {//GEN-HEADEREND:event_cpActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cpActionPerformed
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLabel7MouseClicked
+    {//GEN-HEADEREND:event_jLabel7MouseClicked
+        llenaC();
+    }//GEN-LAST:event_jLabel7MouseClicked
     
     public void llenaF()
     {
@@ -229,6 +256,7 @@ public class AltaSucursal extends javax.swing.JPanel
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nomSuc;
     // End of variables declaration//GEN-END:variables
